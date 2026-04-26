@@ -16,7 +16,7 @@ namespace Equipment_Rental
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => 
+            builder.Services.AddDefaultIdentity<AppUser>(options => 
             { 
                 options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequireDigit = false;
@@ -26,7 +26,7 @@ namespace Equipment_Rental
                 options.Password.RequiredUniqueChars = 0;
                 options.Password.RequireLowercase = false;
             
-            })
+            }) .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 

@@ -24,8 +24,9 @@ namespace Equipment_Rental
                 options.Password.RequiredLength= 6;
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredUniqueChars = 0;
+                options.Password.RequireLowercase = false;
             
-            }).AddRoles<IdentityRole>()
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
